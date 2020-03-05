@@ -4,22 +4,67 @@
     <meta charset="UTF-8">
     <title>第一次作业</title>
     <style>
-        .box{
-            width: 1000px; margin: auto;
+        #box{
+            width: 1003px; margin: auto;
         }
+        .version_l{
+            background: #cccccc;
+            text-align: right;
+            height: 25px;
+            line-height: 25px;
+            font-size: 13px;
+            padding-right: 20px;
+        }
+        #box>main>div{float: left;}
+        .r1{
+            background-image: url("img/web1_right_01.png");
+            height: 163px; width: 233px; font-size: 13px;
+        }
+        .r1 ul {padding-top: 30px;padding-left: 25px}
+        .r1 ul li{ list-style: none; line-height: 20px}
+        .r2{
+            background-image: url("img/web1_right_02.png");
+            height: 205px; width: 233px; font-size: 13px;
+        }
+        .r2 ul {padding-top: 40px;padding-left: 25px}
+        .r2 ul li{ list-style: none; line-height: 20px}
+        .r2 p{font-size: 13px;text-align: right; margin-right: 20px}
     </style>
+    <link rel="stylesheet" href="css/public.css">
 </head>
 <body>
 
-<div class="box">
-    <header><img src="" alt="头部"></header>
+<div id="box">
+    <div class="version_l">中文版|英文版</div>
+    <header><img src="img/web1_head.png" alt="头部"></header>
     <main>
-        <nav><img src="" alt=""></nav>
-        <div><img src="" alt=""></div>
-        <article><img src="" alt=""></article>
+        <div><img src="img/web1_left.png" alt=""></div>
+        <div><img src="img/web1_main.png" alt=""></div>
+        <div class="r1">
+            <ul>
+                <li>测试测试测试试测试测试</li>
+                <li>测试试测试</li>
+                <li>测试测试测测试测试</li>
+                <li>测试测试测试</li>
+                <li>测试测试测试</li>
+            </ul>
+        </div>
+        <div class="r2">
+            <ul>
+                <li>测试测试测试试测试测试</li>
+                <li>测试试测试</li>
+                <li>测试测试测测试测试</li>
+                <li>测试测试测试</li>
+                <li>测试测试测试测试测</li>
+            </ul>
+            <p>更多。。。</p>
+        </div>
+        <div>
+            <img src="img/web1_right_03.png" alt="">
+        </div>
     </main>
     <footer>
-        <img src="" alt="">
+        <img src="img/web1_footer.png" alt="">
     </footer>
 </div>
 
