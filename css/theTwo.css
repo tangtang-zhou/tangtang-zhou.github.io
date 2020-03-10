@@ -1,0 +1,12 @@
+.clear{ clear:both }
+#bg{
+    background-image: url(../img/bg1.jpg);
+    width: 1024px; height: 768px;
+    margin: auto;
+}
+#bg>header>strong{ margin-left: 100px; float: left;margin-top: 50px;font-size: 30px}
+#bg>header>img{ margin-top: 50px; float: right; margin-right: 50px;}
+#table1{float: left; margin-top: 50px;margin-left: 100px}
+#table1 tr td img{ height: 80px}
+#table2{float: right;;margin-top: 50px;margin-right: 80px}
+#table2 tr td img{ height: 80px}

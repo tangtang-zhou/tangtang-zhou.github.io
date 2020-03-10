@@ -1,0 +1,25 @@
+#box{
+    width: 1003px; margin: auto;
+}
+.version_l{
+    background: #ececec;
+    text-align: right;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    padding-right: 20px;
+}
+#box>main>div{float: left;}
+.r1{
+    background-image: url(../img/web1_right_01.png);
+    height: 163px; width: 233px; font-size: 13px;
+}
+.r1 ul {padding-top: 30px;padding-left: 25px}
+.r1 ul li{ list-style: none; line-height: 20px}
+.r2{
+    background-image: url(../img/web1_right_02.png);
+    height: 205px; width: 233px; font-size: 13px;
+}
+.r2 ul {padding-top: 40px;padding-left: 25px}
+.r2 ul li{ list-style: none; line-height: 20px}
+.r2 p{font-size: 13px;text-align: right; margin-right: 20px}
