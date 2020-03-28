@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+/*179000548 汤州*/
+var num;
+function myFunction(){
+
+    num = prompt("请输入行数，奇数数字","1");
+    for(var i=0;i<num;i++){
+        for(var j=num;j>i;j--){
+            document.writeln("&nbsp");
+        }
+        for(var k=0;k<2*i+1;k++){
+            document.writeln("*");
+        }
+        document.writeln("</br>")
+    }
+
+    for(i=0;i<num;i++){
+        for(var n=0;n<5+i;n++){
+            if(n<i){
+                document.write("&nbsp;");
+            }else{
+                document.write("*");
+            }
+        }
+        document.writeln("</br>")
+    }
+}
+myFunction();
+
+
+</script>
+</body>
+</html>

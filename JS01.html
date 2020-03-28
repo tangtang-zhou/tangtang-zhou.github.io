@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        for (let i = 0; i < 10; i++) {
+            for (let j = 1;j <= i; j++){
+                console.log(i +"*"+ j +"=" + i*j)
+            }
+        }
+        console.log(Boolean(""),typeof Boolean(""));
+        console.log(Boolean(1),typeof Boolean(1));
+        console.log(Boolean(NaN),typeof Boolean(NaN));
+        console.log(Boolean("false"),typeof Boolean("false"));
+        console.log(Boolean(null),typeof Boolean(null));
+        console.log(Boolean(undefined),typeof Boolean(undefined));
+
+        console.log(Number(true),typeof Number(true));
+        console.log(Number(null),typeof Number(null));
+        console.log(Number(undefined),typeof Number(undefined));
+        console.log(Number("0xff"),typeof Number("0xff"));
+        console.log(Number(""),typeof Number(""));
+
+        console.log(String(1024),typeof String(1024));
+        console.log(String(null),typeof String(null));
+        console.log(String(NaN),typeof String(NaN));
+
+        console.log(+ "",typeof String(+""));
+        console.log(+true,typeof (+true));
+        console.log(-"05",typeof (-"05"));
+        console.log(!!"",typeof(!!""));
+
+        console.log(NaN == NaN);
+        console.log("0x00" == 0);
+        console.log("" === 0);
+
+        function fib(m) {
+
+            if(m<2){
+                return m;
+            }else {
+                return fib(m-1) + fib(m-2);
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
