@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function one() {
+            let name = "tang";
+            //let num = 0;
+            function two() {
+                //num++;
+                console.log(name);
+            }
+            return two;
+        }
+        //one()();
+        var f = one()
+        f()
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上机实验06_面向对象之继承</title>
+</head>
+<body>
+    <script>
+        function Person(name) {
+            this.name = name;
+        }
+        function Worker(name,salary) {
+            Person.call(this,name);
+            this.salary = salary;
+        }
+        var ojb1 = new Worker("赵云",100);
+        console.log(ojb1);
+
+
+        function Person2(name) {
+            this.name = name;
+        }
+        Person2.prototype.run = function () {
+            console.log("跑");
+        };
+        function Worker2(name,salary) {
+            Person.call(this,name);
+            this.salary = salary;
+        }
+        Worker2.prototype = new Person();
+        var obj2 = new Worker2("赵云",100);
+        console.log(obj2);
+
+        var person3 = {
+            name: "刘备",
+            sex: "男",
+            run: function () {
+                console.log("跑");
+            }
+        };
+        var person1 = Object.create(person3);
+        console.log(person1);
+
+        function inheritPrototype(sFun,pFun) {
+            var myPrototype = new Object(pFun.prototype);
+            myPrototype.constructor = sFun;
+            sFun.prototype = myPrototype;
+        }
+        function Person4(name) {
+            this.name = name;
+        }
+        Person4.prototype.run = function () {
+            console.log("跑");
+        };
+        function Worker4(name,salary) {
+            Person4.call(this,name);
+            this.salary = salary;
+        }
+        inheritPrototype(Worker4,Person4);
+        var worker1 = new Worker4("赵云",100);
+        console.log(worker1);
+
+    </script>
+</body>
+</html>

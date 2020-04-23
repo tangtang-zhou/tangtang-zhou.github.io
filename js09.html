@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*1.*/
+        let arr1 = [1,2,3];
+        let arr2 = arr1;
+        console.log(arr1 === arr2);
+        let  arr3 =[...arr1];
+        console.log(arr1 === arr3);
+        /*第一种是数组地址的引用，第二种是复制数组*/
+        /*2.*/
+        let arr4 = [1,2,3];
+        arr4.forEach((v, k) => console.log(v));
+        /*3.*/
+        /*遍历出数组中大于1的值*/
+        let fib = n => n>1 ? fib(n-1) + fib(n-2) : n;
+        /*如果大于1就返回该值，大于1就执行fib(n-1) + fib(n-2)，递归到不大于1*/
+        /*4.*/
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            shout (){
+                console.log("叫");
+            }
+        }
+        class Dog extends Animal {
+            constructor(name) {
+                super(name);
+            }
+            eat () {
+                console.log("吃");
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj1 = {
+        name: "刘备",
+        sex: "男",
+        run: function () {
+            console.log("跑");
+        }
+    };
+
+    var obj2 = new Object();
+    obj2.name = "刘备";
+    obj2.sex = "男";
+    obj2.run = function () {
+        console.log("跑");
+    };
+
+    function createObj(name,sex,run) {
+        var obj3 = new Object();
+        obj3.name = name;
+        obj3.sex = sex;
+        obj3.run = run;
+        return obj3;
+    }
+    var obj3 = createObj("刘备","男",new Function(" console.log(\"跑\");"));
+
+
+    function Student(name,sex) {
+        this.name = name;
+        this.sex = sex;
+        this.run = function () {
+            console.log(this.name + "跑");
+        }
+    }
+
+    function Person() {}
+    Person.prototype.name = "刘备";
+    Person.prototype.sex = "男";
+    Person.prototype.run = function () {
+        console.log(this.name + "跑");
+    };
+    var obj4 = new Person();
+    console.log(obj4);
+    obj4.run();
+
+    function createStudent(name,sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+    createStudent.prototype.run = function () {
+        console.log(this.name + "跑");
+    };
+
+    function Person2(name) {
+        this.name = name;
+    }
+    var obj5 = new Person2("刘备");
+    console.log(Object.getOwnPropertyDescriptor(obj5,"name"));
+
+    function fun() {
+        console.log(this);
+    }
+    fun();
+
+</script>
+</body>
+</html>
