@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        input{font-size:26px;margin-top: 20px;}
+        body{background-image: url(img/grassland.png);}
+        #mytank{position: absolute;left:10px;top:100px}
+        .button3{
+            background: #00a0e9;color: white;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮一"/>
+<input type="button" value="按钮二" />
+<input type="button" value="按钮三" />
+<hr />
+<img id="mytank" src="img/right.png"/>
+<script type="text/javascript">
+    /*179000548 汤州*/
+    var button1 = document.querySelectorAll("input")[0];
+    var button2 = document.querySelectorAll("input")[1];
+    var button3 = document.querySelectorAll("input")[2];
+    var mytank = document.getElementById('mytank');
+    button1.addEventListener('click',() => alert("javascript事件测试一"));
+    button2.addEventListener('click',() => event.target.value="按钮二测试")
+    button3.addEventListener('mouseenter',() => event.target.className='button3')
+    button3.addEventListener('click',() => alert("javascript事件测试三"))
+
+
+    document.oncontextmenu = function () {
+        event.returnValue = false;
+    }
+    window.addEventListener(
+        /*右*/
+        'keydown',
+        function(e){
+            if(e.keyCode == 39){
+                mytank.setAttribute('src','img/right.png')
+                mytank.style.left = (mytank.offsetLeft+10)+'px';
+            }
+        });
+    window.addEventListener(
+        /*上*/
+        'keydown',
+        function(e){
+            if(e.keyCode == 38 ){
+                mytank.setAttribute('src','img/up.png')
+                mytank.style.top = (mytank.offsetTop-10)+'px';
+            }
+        });
+    window.addEventListener(
+        /*下*/
+        'keydown',
+        function(e){
+            if(e.keyCode == 40){
+                mytank.setAttribute('src','img/down.png')
+                mytank.style.top = (mytank.offsetTop+10)+'px';
+            }
+        });
+    window.addEventListener(
+        /*左*/
+        'keydown',
+        function(e){
+            if(e.keyCode == 37){
+                mytank.setAttribute('src','img/left.png')
+                mytank.style.left = (mytank.offsetLeft-10)+'px';
+            }
+        });
+
+</script>
+</body>
+</html>
