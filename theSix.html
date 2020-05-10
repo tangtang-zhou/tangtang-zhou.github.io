@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习7 BOM编程</title>
+    <link rel="stylesheet" href="css/theSix.css">
+</head>
+<body>
+    <div class="box1">
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box2"></div>
+<script>
+    //179000548 汤州
+    function getTime() {
+        var time = new Date();
+        var minutes = time.getMinutes();
+        var hours = time.getHours();
+        var seconds = time.getSeconds();
+        if (minutes>0 && minutes <= 9) minutes = `0${minutes}`;
+        if (seconds>0 && seconds <= 9) seconds = `0${seconds}`;
+        document.querySelector(".box2").innerHTML = `${hours}:${minutes}:${seconds}`;
+        setTimeout(getTime,1000)
+    }
+    getTime();
+    function getCald() {
+        var time = new Date();
+        var day = time.getDay();
+        var days = [ "日","一", "二", "三", "四", "五", "六"];
+        var date = time.getDate();
+        document.querySelectorAll(".box1 div")[0].innerHTML =  `星期${days[day]}`;
+        document.querySelectorAll(".box1 div")[1].innerHTML = date;
+        setTimeout(getTime,3600000)
+    }
+    getCald()
+
+
+
+
+
+</script>
+</body>
+</html>

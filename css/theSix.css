@@ -1,0 +1,12 @@
+.box1{
+    background-image: url(../img/cald.png);width: 150px;height: 138px;
+}
+.box2{
+    background-image: url(../img/clock.png);height: 146px;color: white;font-size: 50px;text-align: center;width: 240px;line-height: 146px;
+}
+.box1 div:nth-child(1){
+    color: white;font-size: 28px;text-align: center;
+}
+.box1 div:nth-child(2){
+    font-size: 70px;text-align: center;
+}
