@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+	<title>购物车</title>
+	<link rel="stylesheet" type="text/css" href="css/shoppingcart.css" />
+	<script src="js/jquery_3.2.1_jquery.js"></script>
+</head>
+<body>
+<div class="body">
+	<div class="shop"><i></i><span>我的购物车</span></div>
+	<div class="product">
+		<div class="product-box">
+			<div class="product-ckb"><em class="product-em"></em></div>
+			<div class="product-sx">
+				<a href="###">
+					<img src="img/a3.png" class="product-img" />
+					<span class="product-name">酷冷至尊(Cooler Master)T610P CPU风冷散热器</span>
+				</a>
+				<span class="product-price">¥&thinsp;<span class="price" data-price="299">299</span></span>
+				<div class="product-amount">
+					<div class="product_gw">
+						<em class="product-jian">-</em>
+						<input type="text" value="1" class="product-num" />
+						<em class="product-add">+</em>
+					</div>
+				</div>
+				<div class="product-del"><img src="img/deleteico.png" /></div>
+			</div>
+		</div>
+
+		<div class="product-box">
+			<div class="product-ckb"><em class="product-em "></em></div>
+			<div class="product-sx">
+				<a href="###">
+					<img src="img/a1.png" class="product-img" />
+					<span class="product-name">游戏悍将 35英寸曲面电竞显示器21:9带鱼屏准4K游戏显示器</span>
+				</a>
+				<span class="product-price">¥&thinsp;<span class="price" data-price="2099">2099</span></span>
+				<div class="product-amount">
+					<div class="product_gw">
+						<em class="product-jian">-</em>
+						<input type="text" value="1" class="product-num" />
+						<em class="product-add">+</em>
+					</div>
+				</div>
+				<div class="product-del"><img src="img/deleteico.png" /></div>
+			</div>
+		</div>
+
+		<div class="product-box">
+			<div class="product-ckb"><em class="product-em"></em></div>
+			<div class="product-sx">
+				<a href="###">
+					<img src="img/a2.png" class="product-img" />
+					<span class="product-name">技嘉（GIGABYTE） 2080TURBO OC 8GC</span>
+				</a>
+				<span class="product-price">¥&thinsp;<span class="price" data-price="1099">1099</span></span>
+				<div class="product-amount">
+					<div class="product_gw">
+						<em class="product-jian">-</em>
+						<input type="text" value="1" class="product-num" />
+						<em class="product-add">+</em>
+					</div>
+				</div>
+				<div class="product-del"><img src="img/deleteico.png" /></div>
+			</div>
+		</div>
+
+		<div class="product-box">
+			<div class="product-ckb"><em class="product-em"></em></div>
+			<div class="product-sx">
+				<a href="###">
+					<img src="img/a4.png" class="product-img" />
+					<span class="product-name">AMD 锐龙 5 2600X 处理器 (R5) 6核12线程 AM4 </span>
+				</a>
+				<span class="product-price">¥&thinsp;<span class="price" data-price="1299">1299</span></span>
+				<div class="product-amount">
+					<div class="product_gw">
+						<em class="product-jian">-</em>
+						<input type="text" value="1" class="product-num" />
+						<em class="product-add">+</em>
+					</div>
+				</div>
+				<div class="product-del"><img src="img/deleteico.png" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="product-js">
+		<div class="product-al">
+			<div class="product-all">
+				<div class="product-ckb q"><em class="product-xz"></em></div>
+			</div>
+			<div class="all-xz "><span class="product-all-qx">全选</span>
+				<div class="all-sl" style="display: none;">(<span class="product-all-sl">0</span>)</div>
+			</div>
+		</div>
+		<a id="product-sett" href="http://www.baidu.com" class="product-sett product-sett-a">结算</a>
+		<div class="all-product"><span class="all-product-a">¥&thinsp;<span class="all-price">296</span></span></div>
+
+	</div>
+</div>
+<!--购物车空-->
+<div class="kon-cat">
+	<div class="catkon">
+		<div class="kon-box">
+			<div class="kon-hz">
+				<img src="img/cart-air.png" />
+				<span class="kon-wz">购物车什么都没有</span>
+				<a href="###" class="kon-lj">去逛逛</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+	cart(2);
+	//删除商品
+	$(".product-del").click(function () {
+		if(confirm("是否删除商品？")){
+			$(this).parent().parent().remove();
+			cart(2);
+		}
+	})
+
+	//179000548汤州
+	//增加商品
+	$(".product-add").click(function () {
+		let num = parseInt($(this).siblings(".product-num").val());
+		let price  = parseInt($(this).parents('.product_gw').parent('.product-amount').prev().find('span').data('price'));
+		let sum = parseInt(num+1);
+		$(this).siblings(".product-num").val(sum);
+		let all = parseInt(sum * price);
+		$(this).parent('.product_gw').parent('.product-amount').prev().find('span').text(all);
+		cart(2);
+	})
+
+	//减少商品
+	$(".product-jian").click(function () {
+		let num = parseInt($(this).siblings(".product-num").val());
+		let price = parseInt($(this).parents('.product_gw').parent('.product-amount').prev().find('span').data('price'));
+		if(num > 1){
+			let sum = parseInt(num-1);
+			$(this).siblings(".product-num").val(sum);
+			let all = parseInt(sum*price);
+			$(this).parent('.product_gw').parent('.product-amount').prev().find('span').text(all);
+			cart(2);
+		}else{
+			alert("购买数不能小于1");
+		}
+	})
+
+	//选中商品
+	$(".product-em").click(function () {
+		$(this).toggleClass("product-xz");
+		cart(2);
+	})
+
+	//全选
+	$(".q em").click(function () {
+		$(".product-all-qx").html("全选");
+		$(".product .product-box").each(function(item,ind){
+			$(this).find('.product-em').toggleClass('product-xz');
+		})
+		cart(2);
+	})
+
+
+
+	//公用方法
+	function cart(id){
+		//选择总长度
+		var Alldark = $(".product-em").length;
+		//已选择长度
+		var dark = $(".product-em.product-xz").length;
+		if(Alldark == 0){
+			window.location.href = "index_null.html";
+		}
+		if(dark >= 1){
+			$(".product-sett-a").css({"background-color" : "red"});
+			console.log("nill");
+			$(".product-sett-a").css({"pointer-events" : "auto"});
+		}else{
+			$(".product-sett-a").css({"background-color" : "#b2b2b2"});
+			$("#product-sett").css({"pointer-events" : "none"});
+		}
+		console.log(Alldark,dark);
+		if(Alldark > dark){
+			$(".product-all-qx").html("已选(" + `${dark}` + ")");
+			$(".q em").removeClass("product-xz");
+		}else if(Alldark = dark){
+			$(".product-all-qx").html("全选");
+			$(".q em").addClass("product-xz");
+			/*$(".q em").toggleClass("product-xz");*/
+		}
+		/*console.log(dark)*/
+		//其实全选和单选都一样 2是全选 1是单选
+		if(id==2||id==1){
+
+			//获取list中的价格
+			var list = [];
+			$(".product .product-box").each(function(item,ind){
+				if($(this).find('.product-em').hasClass('product-xz')){
+					list.push($(this).find('.product-price span').text());
+				}
+			})
+
+			//总价
+			var sum=0;
+			for(var i=0; i<list.length; i++){
+				var num =parseInt(list[i]);//要先把价格变为int类型
+				sum =parseInt(num+sum);
+			}
+			if(sum==0){
+				sum= '0.00';
+			}
+
+			$(".all-product-a span").text(sum);
+		}
+	}
+</script>
+</body>
+</html>
