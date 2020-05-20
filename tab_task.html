@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/tabdemo.css"/>
+		<script src="js/jquery_3.2.1_jquery.js"></script>
+	</head>
+	<body>
+		<div class="tabox">
+		      <div class="hd">
+		        <ul>
+		          <li class="on">疯狂抢购</li>
+		          <li class="">猜您喜欢</li>
+		          <li class="">热卖商品</li>
+		          <li class="">热评商品</li>
+		          <li class="">新品上架</li></ul>
+		      </div>
+		      <div class="bd">
+		        <ul class="lh">
+		          <img src="img/p1.jpg" >
+		        </ul>
+		        <ul class="lh" style="display: none;">
+		          <img src="img/p2.jpg" >
+		        </ul>
+		        <ul class="lh" style="display: none;">
+		          <img src="img/p3.jpg" >
+		        </ul>
+		        <ul class="lh" style="display: none;">
+		          <img src="img/p4.jpg" >
+		        </ul>
+		        <ul class="lh" style="display: none;">
+		          <img src="img/p5.jpg" >
+		        </ul>
+		      </div>
+		    </div>
+
+	<script>
+		//179000548 汤州
+		$(".hd").find("li").on("click",function () {
+			$(".hd").find("li").removeClass("on");
+			$(this).addClass("on");
+			$(".lh").attr("style","display: none");
+			$(".lh").eq($(this).index()).removeAttr("style")
+		})
+	</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #msg {
+            margin: 0;
+            padding: 0;
+            width: 2000px;
+            height: 2000px;
+            background-color: black;
+        }
+
+        #player {
+            width: 268px;
+            height: 217px;
+            position: absolute;
+        }
+    </style>
+    <script src="js/jquery_3.2.1_jquery.js"></script>
+    <script>
+        //179000548 汤州
+        $(function () {
+
+            //参数
+            let speed = 3000;//玩家移动速度
+            let isCrash = false;//玩家是否吃到道具
+
+            //玩家施展技能
+            $(document).keydown(function(event){
+                console.log(event.keyCode);
+                if(event.keyCode == 81){
+
+                }
+            });
+            //q技能
+            function Qskill(){
+
+            }
+
+            //解决单双击冲突
+            var timer = null;
+            $('#msg').click(function(event) {
+
+                clearTimeout(timer);
+                // 定时器  400ms 一次性定时器
+                timer = setTimeout(function(){
+                    /* */
+                    /* $("#player").finish();*/
+                    $("#player").stop();
+                    let mouseX = event.originalEvent.x ||event.originalEvent.layerX || 0;//鼠标点击x坐标
+                    let mouseY = event.originalEvent.y ||event.originalEvent.layerY || 0;//鼠标点击y坐标
+                    let playerX = $("#player").offset().left;//人物的x坐标
+                    let playerY = $("#player").offset().top;//人物的y坐标
+                    console.log("mouseX" + mouseX + " playerX" + ""+ playerX);
+                    if(mouseX > playerX){
+                        $("#player").attr("src","./img/player_right.gif");
+                    }else{
+                        $("#player").attr("src","./img/player_left.gif");
+                    }
+                    $("#player").animate(
+                        {
+                            left:""+ (mouseX-110)+"px",
+                            top:""+ (mouseY - 100) +"px"
+                        },
+                        speed
+                    );
+                }, 400);
+
+            });
+            //双击
+            $('#msg').dblclick(function(event) {
+                clearTimeout(timer);
+                $("#player").attr("src","img/player1_big.gif");
+            });
+        })
+
+    </script>
+</head>
+<body>
+<div id="msg">
+
+    <img id="player" src="./img/player_right.gif">
+</div>
+</body>
+</html>
