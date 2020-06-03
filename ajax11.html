@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/tabdemo.css"/>
+    <script src="js/jquery.min.js" ></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<body>
+<div class="tabox">
+    <div class="hd">
+        <ul>
+            <li class="on">最近热门电影</li>
+            <li class=" ">即将上映电影</li>
+            <li class=" ">电影详情</li>
+            <li class=" ">热评商品</li>
+            <li class=" ">新品上架</li>
+        </ul>
+    </div>
+    <div class="container" id="bd">
+        <ul class="row row-cols-3">
+
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    //179000548 汤州
+    $(function() {
+            $(this).addClass("on").siblings().removeClass("on");
+            $(".lh").eq($(this).index()).show().siblings().hide();
+            $.ajax({
+                method:"get",
+                url:"https://douban.uieee.com/v2/movie/in_theaters",
+                success:function(date) {
+                    console.log(date);
+                    console.log(date.subjects.length);
+                    for(let i in date.subjects){
+                        $("#bd ul").append("<li>电影名："+date.subjects[i].title+"<br />"+"<img src='"+date.subjects[i].images.large+"'/>"+"</li>");
+                    }
+
+                }
+            })
+    })
+</script>
+</body>
+</html>
